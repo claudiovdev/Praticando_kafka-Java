@@ -12,7 +12,7 @@ services:
       - rede-projeto-kafka
     environment:
       KAFKA_LISTENERS: "INTERNAL://:29092,EXTERNAL://:9092"
-      KAFKA_ADVERTISED_LISTENERS: "INTERNAL://kafka:29092,EXTERNAL://localhost:9092"
+      KAFKA_ADVERTISED_LISTENERS: "INTERNAL://kafka:29092,EXTERNAL://kafka:9092"
       KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: "INTERNAL:PLAINTEXT,EXTERNAL:PLAINTEXT"
       KAFKA_INTER_BROKER_LISTENER_NAME: "INTERNAL"
       KAFKA_ZOOKEEPER_SESSION_TIMEOUT: "6000"
@@ -40,6 +40,34 @@ services:
     depends_on:
       - "kafka"
 
+  app-cadastro:
+    image: viniciuscfn/api-kafka-cadastro-usuario:latest
+    environment:
+      - DB_HOST= #adicione host do banco de dados
+      - DB_USER= #adicione usuario do banco de dados
+      - DB_PASSWORD= #adicione senha do banco de dados
+      - KAFKA_BROKER=kafka:9092
+    networks:
+      - rede-projeto-kafka
+    ports:
+      - "8080:8080"
+
+    depends_on:
+      - "kafka"
+  app-notificacao:
+    image: viniciuscfn/api-kafka-notificacao:latest
+    environment:
+      - DB_HOST= #adicione host do banco de dados
+      - DB_USER= #adicione usuario do banco de dados
+      - DB_PASSWORD= #adicione senha do banco de dados
+      - KAFKA_BROKER=kafka:9092
+    networks:
+      - rede-projeto-kafka
+    ports:
+      - "8082:8080"
+
+    depends_on:
+      - "kafka"
 
 networks:
   rede-projeto-kafka:
