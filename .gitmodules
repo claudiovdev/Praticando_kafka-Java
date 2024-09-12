@@ -1,0 +1,6 @@
+[submodule "Praticando_kafka-Java-notificacao"]
+	path = Praticando_kafka-Java-notificacao
+	url = https://github.com/claudiovdev/Praticando_kafka-Java-notificacao
+[submodule "Praticando_kafka-Java-usuairo"]
+	path = Praticando_kafka-Java-usuairo
+	url = https://github.com/claudiovdev/Praticando_kafka-Java-usuairo
