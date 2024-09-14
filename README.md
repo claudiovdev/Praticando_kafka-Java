@@ -34,3 +34,10 @@ Para realizar a execução do projeto será necessário:
 
 Para rodar o projeto você pode usar o comando:
 - `docker-compose up --build -d`
+
+# Acessando a aplicação
+Para acessar a aplicação e cadastrar um usuario, basta acessar a URL:
+- [http://localhost:8080/swagger-ui/index.html#/](http://localhost:8080/swagger-ui/index.html#/)
+
+Você chegará nesta página:
+# EM CONTRUÇÃO...
