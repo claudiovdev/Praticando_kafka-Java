@@ -8,7 +8,6 @@ Este projeto é uma aplicação Java/Spring que utiliza **Kafka** para gerenciar
 - **Java 11**
 - **Spring boot**
 - **Apache Kafka**
-- **Jackson (para serialização/deserialização)**
 - **Docker (opcional, para rodar o Kafka localmente)**
 # Explicando o Fluxo
 Conforme visto na arquitetura, nosso projeto possui duas aplicações: a de cadastro de usuário e a de notificação. A aplicação de cadastro de usuário é responsável por registrar o usuário, armazenando seus dados em um banco MySQL, e em seguida, enviar um evento ao Kafka com algumas informações do usuário cadastrado. Essa mensagem será consumida pela API de notificação, que será responsável por enviar um e-mail de boas-vindas ao cliente.
